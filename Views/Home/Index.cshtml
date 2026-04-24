@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Registro GameJam";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Registro para el GameJam</h1>
+    <hr />
+</div>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert @ViewBag.ClaseCss">
+        @ViewBag.Mensaje
+    </div>
+}
+
+<form asp-action="Registrar" method="post" class="p-4 border rounded shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Nombre del Jugador:</label>
+        <input name="Nombre" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fecha de Nacimiento:</label>
+        <input type="date" name="FechaNacimiento" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Hobbies:</label>
+        <textarea name="Hobbies" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" name="PagoRealizado" value="true" class="form-check-input" id="checkPago" />
+        <label class="form-check-label" for="checkPago">¿Ya realizó el pago de matrícula?</label>
+        <input type="hidden" name="PagoRealizado" value="false" />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Registrar</button>
+</form>
